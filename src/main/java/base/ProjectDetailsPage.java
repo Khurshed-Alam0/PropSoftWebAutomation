@@ -1,0 +1,43 @@
+package base;
+
+import org.bouncycastle.pqc.crypto.newhope.NHSecretKeyProcessor;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class ProjectDetailsPage {
+
+    public WebDriver driver;
+
+    public ProjectDetailsPage(WebDriver driver){
+        this.driver=driver;
+
+    }
+
+    public WebElement projectName(){
+        return driver.findElement(By.cssSelector("body.standard:nth-child(2) main.standard.grid-skip.minsidebar:nth-child(1) main.content.company_wrap.project-list-nui div.content-wrap div.projects-list a.projects-list__project:nth-child(1) div.projects-list__project__info div.projects-list__project__title > div.projects-list__project__title-container:nth-child(1)"));
+    }
+
+    public void goToProjectDetailsPage(){
+        projectName().click();
+    }
+
+    public WebElement ManageBtnForGoToEditPage(){
+       return driver.findElement(By.xpath("//span[@xpath='1'and contains(text(),'Manage')]"));
+    }
+
+    public void ManageBtnClick(){
+        ManageBtnForGoToEditPage().click();
+    }
+
+    public WebElement EditProject(){
+        return driver.findElement(By.xpath("//span[@xpath='1' and contains(text(),'Edit Project')]"));
+    }
+
+    public void GoToEditProject(){
+        EditProject().click();
+    }
+
+
+
+}
