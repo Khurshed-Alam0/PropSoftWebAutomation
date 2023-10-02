@@ -23,7 +23,7 @@ public class ProjectDetailsPage {
     }
 
     public WebElement ManageBtnForGoToEditPage(){
-       return driver.findElement(By.xpath("//span[@xpath='1'and contains(text(),'Manage')]"));
+       return driver.findElement(By.xpath("//body[1]/div[1]/main[1]/div[2]/main[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/a[1]/span[1]/span[1]"));
     }
 
     public void ManageBtnClick(){
@@ -31,7 +31,7 @@ public class ProjectDetailsPage {
     }
 
     public WebElement EditProject(){
-        return driver.findElement(By.xpath("//span[@xpath='1' and contains(text(),'Edit Project')]"));
+        return driver.findElement(By.xpath("//span[contains(text(),'Edit Project')]"));
     }
 
     public void GoToEditProject(){

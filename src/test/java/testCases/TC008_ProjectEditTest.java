@@ -4,7 +4,11 @@ import base.DriverSetup;
 import base.LoginPage;
 import base.ProjectDetailsPage;
 import base.SidebarPage;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 public class TC008_ProjectEditTest extends DriverSetup {
 
@@ -25,6 +29,22 @@ public class TC008_ProjectEditTest extends DriverSetup {
         projectDetailsPage.ManageBtnClick();
         projectDetailsPage.GoToEditProject();
 
+
+        WebElement lockbox=driver.findElement(By.id("Lockbox"));
+        String beforeEdit=lockbox.getText();
+        Thread.sleep(2000);
+        lockbox.clear();
+        Thread.sleep(2000);
+        lockbox.sendKeys("456");
+        String afterEdit=lockbox.getText();
+
+        Thread.sleep(2000);
+        WebElement btnSubmitClick=driver.findElement(By.xpath("//button[contains(text(),'Save Project')]"));
+        btnSubmitClick.sendKeys(Keys.ENTER);
+
+        SoftAssert softAssert=new SoftAssert();
+        softAssert.assertEquals(beforeEdit,afterEdit);
+        softAssert.assertAll();
 
 
 
