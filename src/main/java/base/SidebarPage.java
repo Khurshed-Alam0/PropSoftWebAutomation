@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.security.PublicKey;
+
 public class SidebarPage {
 
     public WebDriver driver;
@@ -19,5 +21,13 @@ public class SidebarPage {
 
     public void goToProjects(){
         projectInSidebar().click();
+    }
+
+    public WebElement userListSidebar(){
+        return driver.findElement(By.xpath("//span[contains(text(),'User List')]"));
+    }
+
+    public void goToUserListPage(){
+        userListSidebar().click();
     }
 }
