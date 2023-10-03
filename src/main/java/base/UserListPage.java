@@ -13,11 +13,11 @@ public class UserListPage {
     }
 
 
-    public WebElement newInvitaion(){
+    public WebElement newInvitation(){
         return driver.findElement(By.xpath("//span[contains(text(),'New Invitation')]"));
     }
 
     public void goToNewInvite(){
-        newInvitaion().click();
+        newInvitation().click();
     }
 }
