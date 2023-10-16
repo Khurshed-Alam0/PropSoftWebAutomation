@@ -34,6 +34,14 @@ public class ProjectDetailsPage {
         return driver.findElement(By.xpath("//span[contains(text(),'Edit Project')]"));
     }
 
+    public WebElement AssignUserOption(){
+        return driver.findElement(By.xpath("//span[contains(text(),'Assign Users')]") );
+    }
+
+    public void goToAssignUserOption(){
+        AssignUserOption().click();
+    }
+
     public void GoToEditProject(){
         EditProject().click();
     }
