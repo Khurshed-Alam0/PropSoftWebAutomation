@@ -8,10 +8,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-public class TC009_InviteUser_SuperAdmin_AcceptThrough_ManuallyAcceptTest extends DriverSetup {
+public class TC010_InviteUser_Admin_AcceptThrough_ManuallyAcceptTest extends DriverSetup {
 
     @Test
-    public void inviteUser_SuperAdmin_Manually_AcceptTest() throws InterruptedException {
+    public void inviteUser_Admin_Manually_AcceptTest() throws InterruptedException {
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.doLogin();
@@ -36,16 +36,9 @@ public class TC009_InviteUser_SuperAdmin_AcceptThrough_ManuallyAcceptTest extend
         phoneNumber.sendKeys("123456789");
 
 
-       /* WebElement selectOrganization=driver.findElement(By.xpath("//div[@class=' css-1hb7zxy-IndicatorsContainer'] "));
-        selectOrganization.click();
-        Thread.sleep(2000);
-        Actions actions=new Actions(driver);
-        actions.moveToElement(selectOrganization).click().build().perform();
-        actions.click()*/
-
         Thread.sleep(2000);
 
-        WebElement selectPermissionRole = driver.findElement(By.xpath("//body[1]/div[1]/main[1]/div[2]/main[1]/div[1]/form[1]/fieldset[1]/div[1]/section[1]/ul[1]/li[1]/span[1]/button[1]"));
+        WebElement selectPermissionRole = driver.findElement(By.xpath("//body/div[@id='__next']/main[@id='master_container']/div[2]/main[1]/div[1]/form[1]/fieldset[1]/div[1]/section[1]/ul[1]/li[2]/span[1]/button[1]/i[1]"));
         selectPermissionRole.click();
 
         WebElement btnSendInvite = driver.findElement(By.xpath("//input[@value='Send Invite']"));
@@ -53,5 +46,4 @@ public class TC009_InviteUser_SuperAdmin_AcceptThrough_ManuallyAcceptTest extend
 
 
     }
-
 }
