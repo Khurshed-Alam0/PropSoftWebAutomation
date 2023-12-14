@@ -1,19 +1,10 @@
 package Estimate;
 
 import base.DriverSetup;
-import base.LoginPage;
-import base.ProjectDetailsPage;
-import base.SidebarPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.LocalFileDetector;
-import org.openqa.selenium.remote.RemoteWebElement;
 import org.testng.annotations.Test;
 import testCases.TC007_ProjectCreationTest;
-
-import java.awt.*;
-import java.awt.datatransfer.StringSelection;
-import java.io.File;
 
 public class TC001_CreateEstimate extends DriverSetup {
 
@@ -37,7 +28,7 @@ public class TC001_CreateEstimate extends DriverSetup {
         btnCreateEstimate.click();
 
         /*Thread.sleep(5000);
-        driver.findElement(By.xpath("//body/div[@id='__next']/main[@id='master_container']/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[2]/button[1]")).sendKeys("Desktop\\1.xlsx");;
+        driver.findElement(By.xpath("//body/div[@id='__next']/main[@id='master_container']/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[2]/button[1]")).sendKeys("Desktop\\1.xlsx");
         //buttonImport.click();
        // Thread.sleep(2000);
         //buttonImport.sendKeys("Desktop\\1.xlsx");
