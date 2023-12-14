@@ -42,7 +42,8 @@ public class TC007_ProjectCreationTest extends DriverSetup {
 
         Thread.sleep(2000);
         WebElement projectAddress1=driver.findElement(By.id("ProjectAddress1"));
-        projectAddress1.sendKeys("badda,Bangladesh");
+        //projectAddress1.sendKeys("badda,Bangladesh");
+        projectAddress1.sendKeys(java.util.UUID.randomUUID().toString().substring(0, 10));
 
         Thread.sleep(2000);
         WebElement csa= driver.findElement(By.id("CSA"));
@@ -77,26 +78,17 @@ public class TC007_ProjectCreationTest extends DriverSetup {
 
 
 
-        Thread.sleep(2000);
+        /*Thread.sleep(5000);
         WebElement WO=driver.findElement(By.id("WO_No"));
-        WO.sendKeys("W-123");
+        WO.sendKeys("W-123");*/
 
         Thread.sleep(2000);
         WebElement lockbox=driver.findElement(By.id("Lockbox"));
         lockbox.sendKeys("123");
 
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         WebElement btnSubmitClick=driver.findElement(By.xpath("//button[contains(text(),'Create Project')]"));
         btnSubmitClick.sendKeys(Keys.ENTER);
-
-
-
-
-
-
-
-
-
 
 
 

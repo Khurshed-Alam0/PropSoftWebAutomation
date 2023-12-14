@@ -18,7 +18,7 @@ public class TC001_Login_With_SuperAdmin extends DriverSetup {
         driver.findElement(By.id("user_email_address")).sendKeys("dhaka@gmail.com");
         driver.findElement(By.id("user_password")).sendKeys("12345678");
         driver.findElement(By.xpath("//body/div[@id='__next']/div[1]/div[1]/div[1]/form[1]/div[4]/div[1]/div[1]/input[1]")).click();
-        Thread.sleep(2000);
+        Thread.sleep(5000);
 
         String currentUrl=driver.getCurrentUrl();
         String expectedUrl="http://139.59.35.127:3000/dashboard";
