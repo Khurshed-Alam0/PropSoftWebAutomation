@@ -86,7 +86,7 @@ public class TC007_ProjectCreationTest extends DriverSetup {
         WebElement lockbox=driver.findElement(By.id("Lockbox"));
         lockbox.sendKeys("123");
 
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         WebElement btnSubmitClick=driver.findElement(By.xpath("//button[contains(text(),'Create Project')]"));
         btnSubmitClick.sendKeys(Keys.ENTER);
 

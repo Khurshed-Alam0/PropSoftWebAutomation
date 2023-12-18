@@ -48,7 +48,6 @@ public class TC001_CreateEstimate extends DriverSetup {
         buttonImport.sendKeys(file.getAbsolutePath());
         *//*
 */
-
         WebElement lineItem0= driver.findElement(By.id("line_item_name0"));
         lineItem0.sendKeys("1");
 
@@ -60,7 +59,6 @@ public class TC001_CreateEstimate extends DriverSetup {
 
         WebElement markup0= driver.findElement(By.id("markup0"));
         markup0.sendKeys("1");
-
 
         WebElement addRow1=driver.findElement(By.xpath("//body/div[@id='__next']/main[@id='master_container']/div[2]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/table[1]/tfoot[1]/tr[2]/td[1]/div[1]/i[1]"));
         addRow1.click();
@@ -77,17 +75,7 @@ public class TC001_CreateEstimate extends DriverSetup {
         WebElement markup1= driver.findElement(By.id("markup1"));
         markup1.sendKeys("2");
 
-
         WebElement createEstimateButtonClick= driver.findElement(By.xpath("//button[contains(text(),'Create Estimate')]"));
         createEstimateButtonClick.click();
-
-
-
-
-
-
-
-
-
     }
 }

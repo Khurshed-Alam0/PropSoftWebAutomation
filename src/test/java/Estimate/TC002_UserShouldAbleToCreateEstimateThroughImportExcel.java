@@ -22,8 +22,9 @@ public class TC002_UserShouldAbleToCreateEstimateThroughImportExcel extends Driv
         WebElement btnCreateEstimate= driver.findElement(By.xpath("//body/div[@id='__next']/main[@id='master_container']/div[2]/main[1]/div[1]/div[2]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]"));
         btnCreateEstimate.click();
 
+        Thread.sleep(2000);
         WebElement fileInput= driver.findElement(By.xpath("//input[@type='file']"));
-        String filePath = ("D:/KHURSHED/ProftSoft.ai/Create_Estimate/Estimate_dummy_format.xlsx");
+        String filePath = ("D:/KHURSHED/ProftSoft.ai/Create_Estimate/Estimate_dummy_format-1.xlsx");
         fileInput.sendKeys(filePath);
 
 
