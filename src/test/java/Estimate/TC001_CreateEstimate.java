@@ -15,10 +15,6 @@ public class TC001_CreateEstimate extends DriverSetup {
         TC007_ProjectCreationTest createProject=new TC007_ProjectCreationTest();
         createProject.userShouldBeAbleToCreatePage_ThroughPopUpModalLocationSearch();
 
-      /*  Thread.sleep(5000);
-        ProjectDetailsPage project=new ProjectDetailsPage(driver);
-        project.goToProjectDetailsPage();*/
-
         Thread.sleep(5000);
         WebElement tabEstimate=driver.findElement(By.id("projectsTabs-tab-Estimate"));
         tabEstimate.click();
@@ -27,27 +23,6 @@ public class TC001_CreateEstimate extends DriverSetup {
         WebElement btnCreateEstimate= driver.findElement(By.xpath("//body/div[@id='__next']/main[@id='master_container']/div[2]/main[1]/div[1]/div[2]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]"));
         btnCreateEstimate.click();
 
-        /*Thread.sleep(5000);
-        driver.findElement(By.xpath("//body/div[@id='__next']/main[@id='master_container']/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/form[1]/div[2]/button[1]")).sendKeys("Desktop\\1.xlsx");
-        //buttonImport.click();
-       // Thread.sleep(2000);
-        //buttonImport.sendKeys("Desktop\\1.xlsx");
-
-        *//*StringSelection ss = new StringSelection("D:/KHURSHED/ProftSoft.ai/Create_Estimate/Estimate_dummy_format.xlsx");
-        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);*//*
-
-      *//*  // Locate the file input element for uploading
-        WebElement fileInput = driver.findElement(By.id("fileInputId")); // Replace with the actual ID*//*
-
-        // Get the absolute path of the Excel file to be uploaded
-      *//*  String filePath = "D:\\KHURSHED\\ProftSoft.ai\\Create_Estimate\\Estimate_dummy_format.xlsx";
-        File file = new File(filePath);
-
-        // Use the LocalFileDetector to upload the file
-        ((RemoteWebElement) buttonImport).setFileDetector(new LocalFileDetector());
-        buttonImport.sendKeys(file.getAbsolutePath());
-        *//*
-*/
         WebElement lineItem0= driver.findElement(By.id("line_item_name0"));
         lineItem0.sendKeys("1");
 
@@ -77,5 +52,7 @@ public class TC001_CreateEstimate extends DriverSetup {
 
         WebElement createEstimateButtonClick= driver.findElement(By.xpath("//button[contains(text(),'Create Estimate')]"));
         createEstimateButtonClick.click();
+
+        String  expectedTitle= "";
     }
 }
