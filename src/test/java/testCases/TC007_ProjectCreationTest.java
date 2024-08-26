@@ -26,7 +26,7 @@ public class TC007_ProjectCreationTest extends DriverSetup {
         SidebarPage sidebarPage = new SidebarPage(driver);
         sidebarPage.goToProjects();
 
-        Thread.sleep(5000);
+        Thread.sleep(500);
         WebElement CreateProjectBtn = driver.findElement(By.xpath("//span[contains(text(), 'Create Project')]"));
         CreateProjectBtn.click();
 
@@ -42,7 +42,7 @@ public class TC007_ProjectCreationTest extends DriverSetup {
         element.sendKeys(Keys.ARROW_DOWN);
         element.sendKeys(Keys.ENTER);
 
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         WebElement projectAddress1=driver.findElement(By.id("ProjectAddress1"));
         //projectAddress1.sendKeys("badda,Bangladesh");
         projectAddress1.sendKeys(java.util.UUID.randomUUID().toString().substring(0, 10));
@@ -55,14 +55,14 @@ public class TC007_ProjectCreationTest extends DriverSetup {
         WebElement evp=driver.findElement(By.id("EVP"));
         evp.sendKeys("80");*/
 
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         By clientOrganizationDropDown=By.xpath("//input[@name= 'bidAmount']/following::input[1]");
 
         WebElement clientOrganizationDropDownWait=wait.until(ExpectedConditions.elementToBeClickable(clientOrganizationDropDown));
         clientOrganizationDropDownWait.sendKeys(Keys.ARROW_DOWN);
         clientOrganizationDropDownWait.sendKeys(Keys.ENTER);
 
-        Thread.sleep(1000);
+        Thread.sleep(5000);
         By contactPersonDropDown=By.xpath("//input[@name= 'bidAmount']/following::input[3]");
 
         WebElement contactPersonDropDownWait=wait.until(ExpectedConditions.elementToBeClickable(contactPersonDropDown));
@@ -71,7 +71,7 @@ public class TC007_ProjectCreationTest extends DriverSetup {
         contactPersonDropDownWait.sendKeys(Keys.ARROW_DOWN);
         contactPersonDropDownWait.sendKeys(Keys.ENTER);
 
-        Thread.sleep(5000);
+        Thread.sleep(1000);
         WebElement assignUser = driver.findElement(By.xpath("//div[@class='form-field two-input']//input[@id='react-select-4-input']"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", assignUser);
         // Navigate through the dropdown options
@@ -103,11 +103,11 @@ public class TC007_ProjectCreationTest extends DriverSetup {
         WebElement WO=driver.findElement(By.id("WO_No"));
         WO.sendKeys("W-123");*/
 
-        Thread.sleep(2000);
+        Thread.sleep(500);
         WebElement lockbox=driver.findElement(By.id("Lockbox"));
         lockbox.sendKeys("123");
 
-        Thread.sleep(2000);
+        Thread.sleep(500);
         WebElement btnSubmitClick=driver.findElement(By.xpath("//button[contains(text(),'Create Project')]"));
         btnSubmitClick.sendKeys(Keys.ENTER);
 
