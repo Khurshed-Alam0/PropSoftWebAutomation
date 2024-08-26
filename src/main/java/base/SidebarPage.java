@@ -15,7 +15,7 @@ public class SidebarPage {
     }
 
     public WebElement projectInSidebar(){
-        return driver.findElement(By.xpath("//body/div[@id='__next']/main[@id='master_container']/div[1]/nav[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]"));
+        return driver.findElement(By.xpath("//a[@class='nav-link' and @href='/projects']"));
     }
 
     public void goToProjects(){

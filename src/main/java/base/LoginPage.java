@@ -29,7 +29,7 @@ public class LoginPage {
     }
 
     public void doLogin(){
-        String  baseUrl="http://139.59.35.127:3000/";
+        String  baseUrl="https://uatapp.propsoft.ai/";
         driver.navigate().to(baseUrl);
         driver.manage().window().maximize();
         emailField().click();

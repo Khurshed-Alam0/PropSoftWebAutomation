@@ -53,6 +53,5 @@ public class TC001_CreateEstimate extends DriverSetup {
         WebElement createEstimateButtonClick= driver.findElement(By.xpath("//button[contains(text(),'Create Estimate')]"));
         createEstimateButtonClick.click();
 
-        String  expectedTitle= "";
     }
 }
