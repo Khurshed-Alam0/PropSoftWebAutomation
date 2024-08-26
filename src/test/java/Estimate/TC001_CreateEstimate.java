@@ -3,8 +3,12 @@ package Estimate;
 import base.DriverSetup;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import testCases.TC007_ProjectCreationTest;
+
+import java.time.Duration;
 
 public class TC001_CreateEstimate extends DriverSetup {
 
@@ -19,10 +23,24 @@ public class TC001_CreateEstimate extends DriverSetup {
         WebElement tabEstimate=driver.findElement(By.id("projectsTabs-tab-Estimate"));
         tabEstimate.click();
 
-        Thread.sleep(5000);
-        WebElement btnCreateEstimate= driver.findElement(By.xpath("//body/div[@id='__next']/main[@id='master_container']/div[2]/main[1]/div[1]/div[2]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]"));
-        btnCreateEstimate.click();
+     /*   Thread.sleep(5000);
+        WebElement btnCreateEstimate= driver.findElement(By.xpath("//button[contains(@class, 'psb-primary') and contains(text(), 'Create Estimate')"));
+        btnCreateEstimate.click();*/
 
+        // Initialize the WebDriverWait object
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+    // Locate the "Create Estimate" button using XPath
+        By createEstimateButton = By.xpath("//div[contains(@class, 'btn-container')]//button[contains(@class, 'psb-primary') and contains(., 'Create Estimate')]");
+
+    // Wait for the button to be clickable
+        WebElement createEstimateButtonElement = wait.until(ExpectedConditions.elementToBeClickable(createEstimateButton));
+
+    // Click the button
+        createEstimateButtonElement.click();
+
+
+        Thread.sleep(2000);
         WebElement lineItem0= driver.findElement(By.id("line_item_name0"));
         lineItem0.sendKeys("1");
 
