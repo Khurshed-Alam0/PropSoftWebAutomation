@@ -2,9 +2,15 @@ package Estimate;
 
 import base.DriverSetup;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotInteractableException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import testCases.TC007_ProjectCreationTest;
+
+import java.time.Duration;
 
 public class TC002_UserShouldAbleToCreateEstimateThroughImportExcel extends DriverSetup {
 
@@ -19,12 +25,24 @@ public class TC002_UserShouldAbleToCreateEstimateThroughImportExcel extends Driv
         tabEstimate.click();
 
         Thread.sleep(5000);
-        WebElement btnCreateEstimate= driver.findElement(By.xpath("//body/div[@id='__next']/main[@id='master_container']/div[2]/main[1]/div[1]/div[2]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]"));
-        btnCreateEstimate.click();
+/*        WebElement btnCreateEstimate= driver.findElement(By.xpath("//body/div[@id='__next']/main[@id='master_container']/div[2]/main[1]/div[1]/div[2]/div[1]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]"));
+        btnCreateEstimate.click();*/
+
+        // Initialize the WebDriverWait object
+        WebDriverWait  wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        // Locate the "Create Estimate" button using XPath
+        By createEstimateButton = By.xpath("//div[contains(@class, 'btn-container')]//button[contains(@class, 'psb-primary') and contains(., 'Create Estimate')]");
+
+        // Wait for the button to be clickable
+        WebElement createEstimateButtonElement = wait.until(ExpectedConditions.elementToBeClickable(createEstimateButton));
+
+        // Click the button
+        createEstimateButtonElement.click();
 
         Thread.sleep(2000);
         WebElement fileInput= driver.findElement(By.xpath("//input[@type='file']"));
-        String filePath = ("D:/KHURSHED/ProftSoft.ai/Create_Estimate/Estimate_dummy_format-1.xlsx");
+        String filePath = ("D:/KHURSHED/ProftSoft.ai/Create_Estimate/Estimate_dummy_format(current).xlsx");
         fileInput.sendKeys(filePath);
 
 
@@ -39,8 +57,42 @@ public class TC002_UserShouldAbleToCreateEstimateThroughImportExcel extends Driv
         markupValue.click();
         markupValue.sendKeys("50");
 
+   /*     Thread.sleep(5000);
         WebElement markupSaveButton= driver.findElement(By.xpath("//button[contains(text(),'Save')]"));
-        markupSaveButton.click();
+        markupSaveButton.click();*/
+
+  /*      WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+        try {
+            // Scroll to the element
+            WebElement markupSaveButton = wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[contains(text(),'Save')]")));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", markupSaveButton);
+
+            // Wait for the button to be clickable
+            wait.until(ExpectedConditions.elementToBeClickable(markupSaveButton)).click();
+        } catch (ElementNotInteractableException e) {
+            System.out.println("Element is not interactable: " + e.getMessage());
+
+            // As a fallback, use JavaScript to click the button
+            WebElement markupSaveButton = driver.findElement(By.xpath("//button[contains(text(),'Save')]"));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", markupSaveButton);
+        }*/
+
+
+        // Initialize WebDriverWait with a timeout of 10 seconds
+        WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        // Define the XPath for the "Save" button
+        By saveButton = By.xpath("//button[@type='button' and contains(@class, 'btn ccb-blue') and text()='Save']");
+
+        // Wait until the "Save" button is clickable
+        WebElement saveButtonElement = wait1.until(ExpectedConditions.elementToBeClickable(saveButton));
+
+        // Click the "Save" button
+        saveButtonElement.click();
+
+
+
 
         WebElement createEstimateButtonClick= driver.findElement(By.xpath("//button[contains(text(),'Create Estimate')]"));
         createEstimateButtonClick.click();
