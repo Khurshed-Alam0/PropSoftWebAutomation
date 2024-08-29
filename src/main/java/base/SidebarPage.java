@@ -14,11 +14,12 @@ public class SidebarPage {
 
     }
 
-    public WebElement projectInSidebar(){
+    public WebElement projectInSidebar() throws InterruptedException {
+        Thread.sleep(5000);
         return driver.findElement(By.xpath("//a[@class='nav-link' and @href='/projects']"));
     }
 
-    public void goToProjects(){
+    public void goToProjects() throws InterruptedException {
         projectInSidebar().click();
     }
 

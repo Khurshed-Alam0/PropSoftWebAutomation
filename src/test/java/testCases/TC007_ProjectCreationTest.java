@@ -26,13 +26,27 @@ public class TC007_ProjectCreationTest extends DriverSetup {
         SidebarPage sidebarPage = new SidebarPage(driver);
         sidebarPage.goToProjects();
 
-        Thread.sleep(500);
+      /*  Thread.sleep(5000);
         WebElement CreateProjectBtn = driver.findElement(By.xpath("//span[contains(text(), 'Create Project')]"));
-        CreateProjectBtn.click();
 
-       // Thread.sleep(5000);
+        CreateProjectBtn.click();*/
 
+// Initialize WebDriverWait with a timeout of 10 seconds
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+  /*      // Clear cookies and local storage before each iteration
+        driver.manage().deleteAllCookies();
+        ((JavascriptExecutor) driver).executeScript("window.localStorage.clear();");*/
+
+// Wait for the "Create Project" button to be clickable
+        WebElement createProjectBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(), 'Create Project')]")));
+
+// Once the button is clickable, click it
+        createProjectBtn.click();
+
+
+
+        WebDriverWait wait3 = new WebDriverWait(driver, Duration.ofSeconds(10));
         By searchBoxLocator = By.xpath("//body/div[3]/div[1]/div[1]/div[2]/input[1]");
 
         WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(searchBoxLocator));
@@ -42,7 +56,7 @@ public class TC007_ProjectCreationTest extends DriverSetup {
         element.sendKeys(Keys.ARROW_DOWN);
         element.sendKeys(Keys.ENTER);
 
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         WebElement projectAddress1=driver.findElement(By.id("ProjectAddress1"));
         //projectAddress1.sendKeys("badda,Bangladesh");
         projectAddress1.sendKeys(java.util.UUID.randomUUID().toString().substring(0, 10));
@@ -55,19 +69,19 @@ public class TC007_ProjectCreationTest extends DriverSetup {
         WebElement evp=driver.findElement(By.id("EVP"));
         evp.sendKeys("80");*/
 
-        Thread.sleep(2000);
-        By clientOrganizationDropDown=By.xpath("//input[@name= 'bidAmount']/following::input[1]");
+        Thread.sleep(500);
+        By clientOrganizationDropDown=By.xpath("//input[@name= 'bidAmount']/following::input[3]");
 
         WebElement clientOrganizationDropDownWait=wait.until(ExpectedConditions.elementToBeClickable(clientOrganizationDropDown));
         clientOrganizationDropDownWait.sendKeys(Keys.ARROW_DOWN);
         clientOrganizationDropDownWait.sendKeys(Keys.ENTER);
 
-        Thread.sleep(5000);
-        By contactPersonDropDown=By.xpath("//input[@name= 'bidAmount']/following::input[3]");
+        Thread.sleep(500);
+        By contactPersonDropDown=By.xpath("//input[@name= 'bidAmount']/following::input[5]");
 
         WebElement contactPersonDropDownWait=wait.until(ExpectedConditions.elementToBeClickable(contactPersonDropDown));
         Thread.sleep(1000);
-        //contactPersonDropDownWait.sendKeys(Keys.ENTER);
+        contactPersonDropDownWait.sendKeys(Keys.ENTER);
         contactPersonDropDownWait.sendKeys(Keys.ARROW_DOWN);
         contactPersonDropDownWait.sendKeys(Keys.ENTER);
 

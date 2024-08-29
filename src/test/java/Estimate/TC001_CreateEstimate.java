@@ -9,6 +9,9 @@ import org.testng.annotations.Test;
 import testCases.TC007_ProjectCreationTest;
 
 import java.time.Duration;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class TC001_CreateEstimate extends DriverSetup {
 
@@ -18,13 +21,20 @@ public class TC001_CreateEstimate extends DriverSetup {
         // Define the number of iterations
         int iterations = 100;
 
+        WebDriverWait wait = null;
         for (int i = 0; i < iterations; i++) {
+           // Thread.sleep(5000);
             System.out.println("Running iteration: " + (i + 1));
-            Thread.sleep(2000);
+
+           /* if (i > 0 && i % 10 == 0) {
+                driver.quit();
+            }*/
+
+            //Thread.sleep(5000);
             TC007_ProjectCreationTest createProject = new TC007_ProjectCreationTest();
             createProject.userShouldBeAbleToCreatePage_ThroughPopUpModalLocationSearch();
 
-            Thread.sleep(5000);
+            Thread.sleep(2000);
             WebElement tabEstimate = driver.findElement(By.id("projectsTabs-tab-Estimate"));
             tabEstimate.click();
 
@@ -33,7 +43,7 @@ public class TC001_CreateEstimate extends DriverSetup {
         btnCreateEstimate.click();*/
 
             // Initialize the WebDriverWait object
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             // Locate the "Create Estimate" button using XPath
             By createEstimateButton = By.xpath("//div[contains(@class, 'btn-container')]//button[contains(@class, 'psb-primary') and contains(., 'Create Estimate')]");
@@ -84,6 +94,36 @@ public class TC001_CreateEstimate extends DriverSetup {
             System.out.println("Created Estimate No: " + estimateNo);
 
         }
+
+        // Wait for the estimate number elements to be visible in the table
+        List<WebElement> estimateNoElements = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//table/tbody/tr/td/a")));
+
+        // Create a set to keep track of unique estimate numbers
+        Set<String> uniqueEstimates = new HashSet<>();
+
+        // Variable to store the duplicate estimate if found
+        String duplicateEstimate = null;
+
+        // Iterate through each estimate number element
+        for (WebElement element : estimateNoElements) {
+            // Get the text (estimate number) from the current element
+            String estimateNo = element.getText();
+
+            // Check if the estimate number is already in the set
+            if (!uniqueEstimates.add(estimateNo)) {
+                // If the estimate number is already in the set, it's a duplicate
+                duplicateEstimate = estimateNo;
+                break;
+            }
+        }
+
+        // Print the duplicate estimate if found
+        if (duplicateEstimate != null) {
+            System.out.println("Duplicate Estimate Found: " + duplicateEstimate);
+        } else {
+            System.out.println("No Duplicate Estimates Found.");
+        }
+
 
     }
 }
