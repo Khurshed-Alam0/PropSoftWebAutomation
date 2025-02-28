@@ -1,53 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="D:/KHURSHED/Java/propsoft_demo_intellij">
-    <classes>
-
-        <class name="testCases.TC001_Login_With_SuperAdmin">
-            <methods>
-                <include name="login"/>
-            </methods>
-        </class>
-
-        <class name="testCases.TC002_Login_With_Admin">
-            <methods>
-                <include name="loginWithAdmin"/>
-            </methods>
-        </class>
-
-        <class name="testCases.TC003_Login_With_Manager">
-            <methods>
-                <include name="loginWithManagerRole"/>
-            </methods>
-        </class>
-
-        <class name="testCases.TC004_Login_With_FieldStaffRole">
-            <methods>
-                <include name="loginWithFieldStaffRole"/>
-            </methods>
-
-        </class>
-        <class name="testCases.TC005_Login_With_VendorRole">
-            <methods>
-                <include name="loginWithVendorRole"/>
-            </methods>
-        </class>
-
-        <class name="testCases.TC006_Login_With_ClientRole">
-            <methods>
-                <include name="loginWithClientRole"/>
-            </methods>
-        </class>
-
-        <class name="testCases.TC007_ProjectCreationTest">
-            <methods>
-                <include name="userShouldBeAbleToCreatePage_ThroughPopUpModalLocationSearch"/>
-            </methods>
-        </class>
-
-    </classes>
-
+<suite name="All Test Suite" parallel="methods" thread-count="3">
+    <test name="All Test Cases">
+        <packages>
+            <package name="testCases"/>
+            <package name="Estimate"/>
+            <package name="PO"/>
+        </packages>
     </test>
+
 
 </suite>

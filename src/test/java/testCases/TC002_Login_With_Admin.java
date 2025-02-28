@@ -7,7 +7,7 @@ import org.testng.asserts.SoftAssert;
 
 public class TC002_Login_With_Admin extends DriverSetup {
 
-    String baseUrl="https://uatapp.propsoft.ai";
+    String baseUrl="https://awsuatapp.propsoft.ai";
 
     @Test
     public void loginWithAdmin() throws InterruptedException {
@@ -20,7 +20,7 @@ public class TC002_Login_With_Admin extends DriverSetup {
         Thread.sleep(2000);
 
         String currentUrl=driver.getCurrentUrl();
-        String expectedUrl="https://uatapp.propsoft.ai/dashboard";
+        String expectedUrl="https://awsuatapp.propsoft.ai/dashboard";
 
         SoftAssert softly = new SoftAssert();
         softly.assertEquals(currentUrl,expectedUrl) ;

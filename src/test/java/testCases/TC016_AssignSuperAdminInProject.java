@@ -18,7 +18,7 @@ public class TC016_AssignSuperAdminInProject extends DriverSetup  {
         projectDetailsPage.ManageBtnClick();
         projectDetailsPage.goToAssignUserOption();
 
-        Thread.sleep(2000);
+        Thread.sleep(5000);
 
         AssignUserPage assignUserPage=new AssignUserPage(driver);
         assignUserPage.goToAddClient();

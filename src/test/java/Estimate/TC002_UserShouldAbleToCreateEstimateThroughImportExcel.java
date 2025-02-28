@@ -57,27 +57,6 @@ public class TC002_UserShouldAbleToCreateEstimateThroughImportExcel extends Driv
         markupValue.click();
         markupValue.sendKeys("50");
 
-   /*     Thread.sleep(5000);
-        WebElement markupSaveButton= driver.findElement(By.xpath("//button[contains(text(),'Save')]"));
-        markupSaveButton.click();*/
-
-  /*      WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(30));
-
-        try {
-            // Scroll to the element
-            WebElement markupSaveButton = wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[contains(text(),'Save')]")));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", markupSaveButton);
-
-            // Wait for the button to be clickable
-            wait.until(ExpectedConditions.elementToBeClickable(markupSaveButton)).click();
-        } catch (ElementNotInteractableException e) {
-            System.out.println("Element is not interactable: " + e.getMessage());
-
-            // As a fallback, use JavaScript to click the button
-            WebElement markupSaveButton = driver.findElement(By.xpath("//button[contains(text(),'Save')]"));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", markupSaveButton);
-        }*/
-
 
         // Initialize WebDriverWait with a timeout of 10 seconds
         WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));

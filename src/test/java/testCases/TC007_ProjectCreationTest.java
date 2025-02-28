@@ -49,6 +49,7 @@ public class TC007_ProjectCreationTest extends DriverSetup {
         WebDriverWait wait3 = new WebDriverWait(driver, Duration.ofSeconds(10));
         By searchBoxLocator = By.xpath("//body/div[3]/div[1]/div[1]/div[2]/input[1]");
 
+        WebDriverWait wait4 = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(searchBoxLocator));
         element.click();
         String searchedLocation="badda,Bangladesh";
@@ -69,15 +70,14 @@ public class TC007_ProjectCreationTest extends DriverSetup {
         WebElement evp=driver.findElement(By.id("EVP"));
         evp.sendKeys("80");*/
 
-        Thread.sleep(500);
-        By clientOrganizationDropDown=By.xpath("//input[@name= 'bidAmount']/following::input[3]");
-
+        Thread.sleep(2000);
+        By clientOrganizationDropDown=By.xpath("//input[@id='react-select-2-input']");
         WebElement clientOrganizationDropDownWait=wait.until(ExpectedConditions.elementToBeClickable(clientOrganizationDropDown));
         clientOrganizationDropDownWait.sendKeys(Keys.ARROW_DOWN);
         clientOrganizationDropDownWait.sendKeys(Keys.ENTER);
 
         Thread.sleep(500);
-        By contactPersonDropDown=By.xpath("//input[@name= 'bidAmount']/following::input[5]");
+        By contactPersonDropDown=By.xpath("//input[@id='react-select-3-input']");
 
         WebElement contactPersonDropDownWait=wait.until(ExpectedConditions.elementToBeClickable(contactPersonDropDown));
         Thread.sleep(1000);
@@ -117,9 +117,9 @@ public class TC007_ProjectCreationTest extends DriverSetup {
         WebElement WO=driver.findElement(By.id("WO_No"));
         WO.sendKeys("W-123");*/
 
-        Thread.sleep(500);
+        /*Thread.sleep(500);
         WebElement lockbox=driver.findElement(By.id("Lockbox"));
-        lockbox.sendKeys("123");
+        lockbox.sendKeys("123");*/
 
         Thread.sleep(500);
         WebElement btnSubmitClick=driver.findElement(By.xpath("//button[contains(text(),'Create Project')]"));

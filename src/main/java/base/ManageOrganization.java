@@ -19,16 +19,26 @@ public class ManageOrganization {
         return driver.findElement(By.xpath("//body/div[@id='__next']/main[@id='master_container']/nav[1]/div[1]/div[1]/div[1]/ul[2]/li[1]/a[1]/div[1]/div[1]"));
     }
 
+    public WebElement allSettings(){
+
+        return driver.findElement(By.xpath("//a[@href='/all_settings']"));
+
+    }
+
     public WebElement manageOrganizationBtn(){
-        return driver.findElement(By.xpath("//body/div[@id='__next']/main[@id='master_container']/nav[1]/div[1]/div[1]/div[1]/ul[2]/li[1]/div[1]/a[6]"));
+        return driver.findElement(By.xpath("//a[text()='Manage Organization']"));
     }
 
     public WebElement addOrganizationBtn(){
-        return driver.findElement(By.xpath("//body/div[@id='__next']/main[@id='master_container']/div[2]/main[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/button[1]") );
+        return driver.findElement(By.xpath("//button[contains(text(),'Add New Organization')]") );
     }
 
     public WebElement addOrganizationModal(){
         return driver.findElement(By.xpath("//input[@placeholder='Enter Organization Name']"));
+    }
+
+    public WebElement addOrganizationCode(){
+        return driver.findElement(By.xpath("//input[@placeholder='Enter Organization Code']"));
     }
 
     public WebElement saveBtn(){
@@ -36,11 +46,17 @@ public class ManageOrganization {
 
     }
 
-    public void doAddNewProject(){
-        userProfile().click();
+    public void doAddNewProject() throws InterruptedException {
+        CardProfileDropDown cardProfileDropDown=new CardProfileDropDown(driver);
+        Thread.sleep(5000);
+        cardProfileDropDown.ClickOnCardprofileDropdown();
+        allSettings().click();
+        //userProfile().click();
         manageOrganizationBtn().click();
         addOrganizationBtn().click();
-        addOrganizationModal().sendKeys("new test Organization");
+        addOrganizationModal().sendKeys(java.util.UUID.randomUUID().toString().substring(0,10));
+        addOrganizationCode().click();
+        addOrganizationCode().sendKeys(java.util.UUID.randomUUID().toString().substring(0,10));
         saveBtn().click();
 
     }

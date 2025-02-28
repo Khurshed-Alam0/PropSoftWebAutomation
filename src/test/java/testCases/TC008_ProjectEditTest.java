@@ -30,6 +30,9 @@ public class TC008_ProjectEditTest extends DriverSetup {
         projectDetailsPage.GoToEditProject();
 
 
+        WebElement additionalinfo=driver.findElement(By.xpath("//h6[text()='Additional Info']"));
+        additionalinfo.click();
+
         WebElement lockbox=driver.findElement(By.id("Lockbox"));
         String beforeEdit=lockbox.getText();
         Thread.sleep(2000);

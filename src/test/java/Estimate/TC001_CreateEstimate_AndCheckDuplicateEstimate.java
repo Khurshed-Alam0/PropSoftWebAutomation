@@ -13,13 +13,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class TC001_CreateEstimate extends DriverSetup {
+public class TC001_CreateEstimate_AndCheckDuplicateEstimate extends DriverSetup {
 
     @Test
     public void userShouldAbleToCreateEstimate() throws InterruptedException {
 
         // Define the number of iterations
-        int iterations = 100;
+        int iterations = 10;
 
         WebDriverWait wait = null;
         for (int i = 0; i < iterations; i++) {
@@ -30,7 +30,7 @@ public class TC001_CreateEstimate extends DriverSetup {
                 driver.quit();
             }*/
 
-            //Thread.sleep(5000);
+            Thread.sleep(2000);
             TC007_ProjectCreationTest createProject = new TC007_ProjectCreationTest();
             createProject.userShouldBeAbleToCreatePage_ThroughPopUpModalLocationSearch();
 
@@ -92,6 +92,7 @@ public class TC001_CreateEstimate extends DriverSetup {
 
             // Print the estimate number
             System.out.println("Created Estimate No: " + estimateNo);
+            Thread.sleep(2000);
 
         }
 

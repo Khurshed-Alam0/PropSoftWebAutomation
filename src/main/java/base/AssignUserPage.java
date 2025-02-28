@@ -1,5 +1,4 @@
 package base;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -9,11 +8,13 @@ public class AssignUserPage {
 
     public WebDriver driver;
 
-    public AssignUserPage(WebDriver driver){
+    public AssignUserPage(WebDriver driver)
+    {
         this.driver=driver;
     }
 
-    public WebElement AssignUserBtn(){
+    public WebElement AssignUserBtn()
+    {
         return driver.findElement(By.xpath("//span[contains(text(),'Assign Users')]"));
     }
 
@@ -23,7 +24,7 @@ public class AssignUserPage {
     }
 
     public WebElement AssignUserModal(){
-        return driver.findElement(By.xpath("//div[@id='react-select-5-placeholder' and contains(text(),'Enter a User name')]"));
+        return driver.findElement(By.xpath("//input[contains(@id,'react-select')]"));
     }
 
     public WebElement AddClient(){
@@ -36,6 +37,7 @@ public class AssignUserPage {
        Thread.sleep(5000);
        //AssignUserModal().sendKeys(Keys.ENTER);
        //Thread.sleep(2000);
+        AssignUserModal().click();
        AssignUserModal().sendKeys("Client");
        Thread.sleep(5000);
        AssignUserModal().sendKeys(Keys.ENTER);
