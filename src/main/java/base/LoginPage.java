@@ -29,13 +29,13 @@ public class LoginPage {
     }
 
     public void doLogin(){
-        String  baseUrl="http://139.59.35.127:3000/";
+        String  baseUrl="https://awsuatapp.propsoft.ai/";
         driver.navigate().to(baseUrl);
         driver.manage().window().maximize();
         emailField().click();
-        emailField().sendKeys("dhaka@gmail.com");
+        emailField().sendKeys("support@propsoft.ai");
         passWordField().click();
-        passWordField().sendKeys("12345678");
+        passWordField().sendKeys("123456789");
         btnLogin().click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
