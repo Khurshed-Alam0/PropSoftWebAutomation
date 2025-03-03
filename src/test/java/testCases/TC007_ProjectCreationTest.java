@@ -26,22 +26,14 @@ public class TC007_ProjectCreationTest extends DriverSetup {
         SidebarPage sidebarPage = new SidebarPage(driver);
         sidebarPage.goToProjects();
 
-      /*  Thread.sleep(5000);
-        WebElement CreateProjectBtn = driver.findElement(By.xpath("//span[contains(text(), 'Create Project')]"));
-
-        CreateProjectBtn.click();*/
-
-// Initialize WebDriverWait with a timeout of 10 seconds
+        // Initialize WebDriverWait with a timeout of 10 seconds
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-  /*      // Clear cookies and local storage before each iteration
-        driver.manage().deleteAllCookies();
-        ((JavascriptExecutor) driver).executeScript("window.localStorage.clear();");*/
 
-// Wait for the "Create Project" button to be clickable
+        // Wait for the "Create Project" button to be clickable
         WebElement createProjectBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(), 'Create Project')]")));
 
-// Once the button is clickable, click it
+        // Once the button is clickable, click it
         createProjectBtn.click();
 
 
@@ -61,14 +53,6 @@ public class TC007_ProjectCreationTest extends DriverSetup {
         WebElement projectAddress1=driver.findElement(By.id("ProjectAddress1"));
         //projectAddress1.sendKeys("badda,Bangladesh");
         projectAddress1.sendKeys(java.util.UUID.randomUUID().toString().substring(0, 10));
-
-       /* Thread.sleep(2000);
-        WebElement csa= driver.findElement(By.id("CSA"));
-        csa.sendKeys("100");*/
-
-      /*  Thread.sleep(2000);
-        WebElement evp=driver.findElement(By.id("EVP"));
-        evp.sendKeys("80");*/
 
         Thread.sleep(2000);
         By clientOrganizationDropDown=By.xpath("//input[@id='react-select-2-input']");
@@ -105,21 +89,7 @@ public class TC007_ProjectCreationTest extends DriverSetup {
 
         // Option 1: Use keypresses to select an option
         orderTypeInputElement.sendKeys(Keys.ARROW_DOWN);  // Navigate to the desired option
-        orderTypeInputElement.sendKeys(Keys.ENTER);       // Confirm the selection
-
-        // Option 2: Select option by visible text (uncomment if needed)
-        // By desiredOption = By.xpath("//div[text()='After Turn']");  // Replace with the actual option text
-        // WebElement optionElement = wait.until(ExpectedConditions.elementToBeClickable(desiredOption));
-        // optionElement.click();
-
-
-        /*Thread.sleep(5000);
-        WebElement WO=driver.findElement(By.id("WO_No"));
-        WO.sendKeys("W-123");*/
-
-        /*Thread.sleep(500);
-        WebElement lockbox=driver.findElement(By.id("Lockbox"));
-        lockbox.sendKeys("123");*/
+        orderTypeInputElement.sendKeys(Keys.ENTER);       // Confirm the selectiongit
 
         Thread.sleep(500);
         WebElement btnSubmitClick=driver.findElement(By.xpath("//button[contains(text(),'Create Project')]"));
