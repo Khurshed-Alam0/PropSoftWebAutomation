@@ -10,30 +10,33 @@ import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
-public class projectDeletion extends DriverSetup {
-
-    private int projectId;
+public class projectDeletionUsingPredefinedRandomListOfprojectsIDs extends DriverSetup {
 
     @Test
-    public void userShouldAbleToDeleteProject() throws InterruptedException, MalformedURLException {
-
-        LoginPage loginPage=new LoginPage(driver);
+    public void userShouldAbleToDeleteProject() throws Exception {
+        LoginPage loginPage = new LoginPage(driver);
         loginPage.doLogin();
 
-        for(projectId = 7842; projectId >=7842; projectId--){
+        // ✅ Step 1: Define list of project IDs (you can modify this list anytime)
+        List<Integer> projectIds = Arrays.asList(7706, 7536, 7090);
 
-        SidebarPage sidebarPage=new SidebarPage(driver);
-        sidebarPage.goToProjects();
+        // ✅ Step 2: Shuffle the list to get random order
+        Collections.shuffle(projectIds);
 
-        /*    String projectUrl = "https://awsuatapp.propsoft.ai/project-details?id=" + projectId;
-            driver.get(projectUrl);*/
+        // ✅ Step 3: Loop through the randomized list
+        for (int projectId : projectIds) {
 
-            ProjectDetailsPage projectDetailsPage=new ProjectDetailsPage(driver);
-            Thread.sleep(2000);
-            projectDetailsPage.goToProjectDetailsPage();
-            Thread.sleep(2000);
+            SidebarPage sidebarPage = new SidebarPage(driver);
+            sidebarPage.goToProjects();
 
+            String projectUrl = "https://awsuatapp.propsoft.ai/project-details?id=" + projectId;
+            driver.get(projectUrl);
+
+            ProjectDetailsPage projectDetailsPage = new ProjectDetailsPage(driver);
 
             String currentUrl = driver.getCurrentUrl();
             URL url = new URL(currentUrl);
@@ -42,27 +45,26 @@ public class projectDeletion extends DriverSetup {
             int actualId = -1;
             if (query != null && query.startsWith("id=")) {
                 actualId = Integer.parseInt(query.split("=")[1]);
-                System.out.println("Actual id="+actualId);
+                System.out.println("Actual id = " + actualId);
             }
+
             try {
                 if (actualId == projectId) {
                     projectDetailsPage.ManageBtnClick();
 
                     WebElement deleteProjectButton = driver.findElement(By.xpath("//a[span[text()='Delete Project']]"));
                     deleteProjectButton.click();
-                    WebElement deleteProjectConfirmationModal = driver.findElement(By.xpath("//button[contains(.,'Yes, delete')]  "));
+
+                    WebElement deleteProjectConfirmationModal = driver.findElement(By.xpath("//button[contains(.,'Yes, delete')]"));
                     deleteProjectConfirmationModal.click();
+
                     System.out.println("✅ Project ID " + projectId + " deleted successfully.");
                     Thread.sleep(2000);
-
                 }
-            }catch (Exception e) {
+            } catch (Exception e) {
                 System.out.println("⚠️ Project ID " + projectId + " not found or cannot be deleted. Skipping...");
             }
-
         }
-
-
-
     }
+
 }
