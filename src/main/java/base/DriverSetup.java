@@ -35,7 +35,7 @@ public class DriverSetup {
     @AfterSuite
     public static void closeWindow()
     {
-        driver.quit();
+        //driver.quit();
     }
 
 

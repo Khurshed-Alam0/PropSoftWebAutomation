@@ -26,19 +26,19 @@ public class ManageOrganization {
     }
 
     public WebElement manageOrganizationBtn(){
-        return driver.findElement(By.xpath("//a[text()='Manage Organization']"));
+        return driver.findElement(By.xpath("//a[text()='Manage Client']"));
     }
 
     public WebElement addOrganizationBtn(){
-        return driver.findElement(By.xpath("//button[contains(text(),'Add New Organization')]") );
+        return driver.findElement(By.xpath("//button[contains(text(),' Add New Client')]") );
     }
 
     public WebElement addOrganizationModal(){
-        return driver.findElement(By.xpath("//input[@placeholder='Enter Organization Name']"));
+        return driver.findElement(By.xpath("//input[@placeholder='Enter Client Name']"));
     }
 
     public WebElement addOrganizationCode(){
-        return driver.findElement(By.xpath("//input[@placeholder='Enter Organization Code']"));
+        return driver.findElement(By.xpath("//input[@placeholder='Enter Client Code']"));
     }
 
     public WebElement saveBtn(){
