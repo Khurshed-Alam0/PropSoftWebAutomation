@@ -3,6 +3,7 @@ package testCases;
 import base.DriverSetup;
 import base.LoginPage;
 import base.SidebarPage;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -52,7 +53,8 @@ public class TC007_ProjectCreationTest extends DriverSetup {
 
 // ✅ Interact with the element
                 element.click();
-                String searchedLocation = "badda,Bangladesh";
+                //String searchedLocation = "badda,Bangladesh";
+                String searchedLocation = RandomStringUtils.randomAlphabetic(2);
                 element.sendKeys(searchedLocation);
                 wait.until(ExpectedConditions.presenceOfElementLocated(By.className("pac-item"))); // Google's class for suggestions
                 element.sendKeys(Keys.ARROW_DOWN);
